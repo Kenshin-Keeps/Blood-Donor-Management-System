@@ -28,7 +28,7 @@ CREATE TABLE DONOR(
 CREATE TABLE REQUEST(
     requestId   number(7) NOT NULL,
     userId      number(7) NOT NULL,
-    bloodGroup  varchar(4) NOT NULL,
+    requestedGroup  varchar(4) NOT NULL,
     quantity    number(2),
     reason      varchar(50),
     neededAt    varchar(50), 
