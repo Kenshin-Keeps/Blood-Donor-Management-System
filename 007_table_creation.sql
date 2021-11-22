@@ -21,7 +21,7 @@ CREATE TABLE DONOR(
     userId          number(7) UNIQUE NOT NULL,
     bloodGroup      varchar(4) NOT NULL,
     donorAddress    varchar(50),
-    lastDonatedOn   date
+    status          varchar(15) NOT NULL
 );
 
 -- Creating request table to keep data of user requests for blood.
@@ -30,7 +30,7 @@ CREATE TABLE REQUEST(
     userId      number(7) NOT NULL,
     requestedGroup  varchar(4) NOT NULL,
     quantity    number(2),
-    reason      varchar(50),
+    reason      varchar(255),
     neededAt    varchar(50), 
     neededOn    date,
     contactNo   varchar(15)
