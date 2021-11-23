@@ -31,13 +31,38 @@ SELECT COUNT(donorId), bloodGroup FROM DONOR GROUP BY bloodGroup HAVING bloodGro
 -- User of aggregate function
 SELECT COUNT(quantity), SUM(quantity), AVG(quantity), MAX(quantity), MIN(quantity) FROM REQUEST;
 
--- Union All example, Merging results of two Queries
+-- "UNION ALL" example, Merging results of two Queries
 SELECT userId, userFName, userLName FROM USERDATA
 WHERE age BETWEEN 20 AND 25 
 UNION ALL
 SELECT userId, userFName, userLName FROM USERDATA
 WHERE userId IN (SELECT userId FROM DONOR
 WHERE bloodGroup='B+');
+
+-- "UNION" example, Merging results of two Queries
+SELECT userId, userFName, userLName FROM USERDATA WHERE age BETWEEN 20 AND 25 
+UNION
+SELECT userId, userFName, userLName FROM USERDATA WHERE userId IN 
+(SELECT userId FROM DONOR
+WHERE bloodGroup='B+');
+
+-- "INTERSECT" example, Merging results of two Queries
+SELECT userId, userFName, userLName FROM USERDATA WHERE age BETWEEN 20 AND 25 
+INTERSECT
+SELECT userId, userFName, userLName FROM USERDATA WHERE userId IN 
+(SELECT userId FROM DONOR
+WHERE bloodGroup='B+');
+
+-- "MINUS" example, Merging results of two Queries
+SELECT userId, userFName, userLName FROM USERDATA WHERE age BETWEEN 20 AND 25 
+MINUS
+SELECT userId, userFName, userLName FROM USERDATA WHERE userId IN 
+(SELECT userId FROM DONOR
+WHERE bloodGroup='B+');
+
+
+
+
 
 
 
