@@ -8,10 +8,10 @@ DROP TABLE USERDATA;
 -- Creating userdata table to keep user data
 CREATE TABLE USERDATA(
     userId      number(7) NOT NULL,
-    userFName   varchar(30) NOT NULL,
-    userLName   varchar(30) NOT NULL,
+    userFName   varchar(15) NOT NULL,
+    userLName   varchar(15) NOT NULL,
     phoneNo     varchar(12),
-    gender      varchar(10),
+    gender      varchar(6),
     age         number(3)
 );
 
@@ -19,21 +19,21 @@ CREATE TABLE USERDATA(
 CREATE TABLE DONOR(
     donorId         number(7) NOT NULL,
     userId          number(7) UNIQUE NOT NULL,
-    bloodGroup      varchar(4) NOT NULL,
-    donorAddress    varchar(50),
+    bloodGroup      varchar(3) NOT NULL,
+    donorAddress    varchar(15),
     status          varchar(15) NOT NULL
 );
 
 -- Creating request table to keep data of user requests for blood.
 CREATE TABLE REQUEST(
-    requestId   number(7) NOT NULL,
+    requestId   number(3) NOT NULL,
     userId      number(7) NOT NULL,
-    requestedGroup  varchar(4) NOT NULL,
+    requestedGroup  varchar(3) NOT NULL,
     quantity    number(2),
-    reason      varchar(255),
-    neededAt    varchar(50), 
+    reason      varchar(25),
+    neededAt    varchar(15), 
     neededOn    date,
-    contactNo   varchar(15)
+    contactNo   varchar(12)
 );
 
 -- Assigning primary key
