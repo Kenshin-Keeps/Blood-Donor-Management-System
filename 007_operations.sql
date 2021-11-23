@@ -2,7 +2,7 @@
 -- Selecting distinct gender
 SELECT DISTINCT(gender) AS DISTINCT_GENDER FROM USERDATA;
 
-SELECT status AS Status_Unavailable FROM DONOR WHERE status LIKE 'un%';
+SELECT userId AS Who_are_unavailable FROM DONOR WHERE status LIKE 'un%';
 -- Selecting  user informatoin based on age => 20 and age <= 25
 SELECT userFName, userLName, phoneNo, gender FROM USERDATA WHERE age BETWEEN 20 AND 25;
 -- Selecting  user informatoin based on age < 20 and age > 25
@@ -27,6 +27,23 @@ SELECT COUNT(donorId), bloodGroup FROM DONOR GROUP BY bloodGroup;
 
 -- Selecting the count of donors of only 'B+' blood group
 SELECT COUNT(donorId), bloodGroup FROM DONOR GROUP BY bloodGroup HAVING bloodGroup='B+';
+
+-- User of aggregate function
+SELECT COUNT(quantity), SUM(quantity), AVG(quantity), MAX(quantity), MIN(quantity) FROM REQUEST;
+
+-- Union All example, Merging results of two Queries
+SELECT userId, userFName, userLName FROM USERDATA
+WHERE age BETWEEN 20 AND 25 
+UNION ALL
+SELECT userId, userFName, userLName FROM USERDATA
+WHERE userId IN (SELECT userId FROM DONOR
+WHERE bloodGroup='B+');
+
+
+
+
+
+
 
 
 
