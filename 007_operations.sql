@@ -64,20 +64,36 @@
 -- SELECT DISTINCT u.userId, u.userFName, u.userLName, d.bloodGroup, d.status AS NEWDATA 
 -- FROM USERDATA u, DONOR d, REQUEST r WHERE u.userId = d.userId AND u.userId = r.userId;
 
--- -- Selecting information of user's request with JOIN operation
+-- -- Selecting information of users and their request with JOIN operation
 -- SELECT u.userFName, u.userLName, r.requestedGroup, r.reason, r.quantity
 -- FROM USERDATA u JOIN REQUEST r ON u.userId = r.userId;
 
--- -- Selecting information of user's request with USING operation
+-- -- Selecting information of users and their request with USING operation
 -- SELECT u.userFName, u.userLName, r.requestedGroup, r.reason, r.quantity
 -- FROM USERDATA u JOIN REQUEST r USING(userId);
 
--- -- Selecting information of user's request with NATURAL JOIN operation
+-- -- Selecting information of users and their request with NATURAL JOIN operation
 -- SELECT userId, u.userFName, r.requestedGroup, r.reason, r.quantity
 -- FROM USERDATA u NATURAL JOIN REQUEST r;
 
--- INNER JOIN
+-- -- Example of INNER JOIN which is same as join
+-- SELECT u.userFName, u.userLName, r.requestedGroup, r.reason, r.quantity
+-- FROM USERDATA u INNER JOIN REQUEST r ON u.userId = r.userId;
 
+-- -- Selecting information of users and their request based on LEFT OUTER JOIN
+-- SELECT u.userFName, u.userLName, r.requestedGroup, r.reason 
+-- FROM USERDATA u LEFT OUTER JOIN REQUEST r 
+-- ON u.userId = r.userId;
+
+-- -- Selecting information of donors and their requests based on RIGHT OUTER JOIN
+-- SELECT d.donorId, d.donorAddress, r.requestedGroup, r.contactNo
+-- FROM DONOR d RIGHT OUTER JOIN REQUEST r
+-- ON d.userId = r.userId; 
+
+-- -- Selecting information of donors and their requests based on FULL OUTER JOIN
+-- SELECT d.donorId, d.donorAddress, r.requestedGroup, r.contactNo
+-- FROM DONOR d FULL OUTER JOIN REQUEST r
+-- ON d.userId = r.userId; 
 
 
 
