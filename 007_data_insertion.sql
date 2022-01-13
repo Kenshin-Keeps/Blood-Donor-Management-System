@@ -1,8 +1,13 @@
-
 -- Deleting any previous row in any table
+    prompt Deleting exsisting row in USERDATA, DONOR, REQUEST
+    prompt --------------------------------
+
 DELETE FROM REQUEST;
 DELETE FROM DONOR;
 DELETE FROM USERDATA;
+
+    prompt Inserting data in USERDATA, DONOR, REQUEST table
+    prompt --------------------------------
 
 SET SERVEROUTPUT ON
 BEGIN
@@ -117,8 +122,21 @@ VALUES (115, 1707017, 'AB-', 3, 'Accident', 'Khulna', '10-JAN-21', '01743567807'
 DBMS_OUTPUT.PUT_LINE('Data inserted in each table.');
 END;
 /
+
 -- Displaying inserted data in console
+    prompt Showing table data
+    prompt --------------------------------
+    
+    prompt Showing USERDATA table data
+    prompt --------------------------------
+
 SELECT * FROM USERDATA;
+    prompt Showing DONOR table data
+    prompt --------------------------------
+
 SELECT * FROM DONOR;
+    prompt Showing REQUEST table data
+    prompt --------------------------------
+
 SELECT * FROM REQUEST;
 
