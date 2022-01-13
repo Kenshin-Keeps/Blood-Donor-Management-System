@@ -1,4 +1,6 @@
 -- Dropping any existing table of same name before creating new
+    prompt Droping existing table with same name as USERDATA, DONOR, REQUEST
+    prompt --------------------------------
 
 DROP TABLE REQUEST;
 DROP TABLE DONOR;
@@ -6,6 +8,9 @@ DROP TABLE USERDATA;
 
 
 -- Creating userdata table to keep user data
+    prompt Creating USERDATA table
+    prompt --------------------------------
+
 CREATE TABLE USERDATA(
     userId      number(7) NOT NULL,
     userFName   varchar(15) NOT NULL,
@@ -16,6 +21,9 @@ CREATE TABLE USERDATA(
 );
 
 -- Creating donor table to keep donor data
+    prompt Creating donor table
+    prompt --------------------------------
+
 CREATE TABLE DONOR(
     donorId         number(7) NOT NULL,
     userId          number(7) UNIQUE NOT NULL,
@@ -25,6 +33,9 @@ CREATE TABLE DONOR(
 );
 
 -- Creating request table to keep data of user requests for blood.
+    prompt Creating request table
+    prompt --------------------------------
+
 CREATE TABLE REQUEST(
     requestId   number(3) NOT NULL,
     userId      number(7) NOT NULL,
@@ -35,6 +46,9 @@ CREATE TABLE REQUEST(
     neededOn    date,
     contactNo   varchar(12)
 );
+
+    prompt Setting realtions
+    prompt --------------------------------
 
 -- Assigning primary key
 ALTER TABLE USERDATA ADD CONSTRAINT 
@@ -55,8 +69,20 @@ REQUEST_FK FOREIGN KEY(userId) references
 USERDATA(userId);
 
 -- Describing recently created tables
+    prompt Describing created tables
+    prompt --------------------------------
+
+    prompt Describing USERDATA table
+    prompt --------------------------------
+
 DESCRIBE USERDATA;
+    prompt Describing DONOR table
+    prompt --------------------------------
+
 DESCRIBE DONOR;
+    prompt Describing REQUEST table
+    prompt --------------------------------
+
 DESCRIBE REQUEST;
 
 
