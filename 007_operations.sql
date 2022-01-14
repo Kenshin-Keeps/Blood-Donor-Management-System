@@ -228,7 +228,23 @@
 -- end;
 -- /
 
+--     prompt Loop implementations with PL/SQL
+--     prompt --------------------------------
 
+-- SET SERVEROUTPUT ON
+-- DECLARE
+--     CURSOR d_cur IS select userId, bloodGroup, donorAddress, status from DONOR;
+--     d_record d_cur%rowtype;
+-- begin
+-- open d_cur;
+-- loop
+--     fetch d_cur into d_record;
+--     exit when d_cur%rowcount > 5;
+--     DBMS_OUTPUT.PUT_LINE('User '||d_record.userId||', has blood group '||d_record.bloodGroup||', is '||d_record.status||' for donation and lives in '||d_record.donorAddress);
+-- end loop;
+-- close d_cur;
+-- end;
+-- /
 
 
 
